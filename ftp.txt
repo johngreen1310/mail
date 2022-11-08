@@ -1,0 +1,32 @@
+sudo adduser nidhi
+su --login nidhi
+
+
+sudo apt-get install vsftpd
+sudo su
+/home/osboxes# cd /etc
+/etc# nano vsftpd.conf
+
+Making the anonymous_enable from NO → YES 
+Commenting out the line local_enable 
+Uncommenting out the line write_enable 
+Saving the changes by → ctrl+O and hitting enter 
+Exiting by → ctrl+X
+
+
+
+serivce vsftpd restart
+
+ifconfig
+
+ftp --ip--
+
+/# 
+
+/# adduser nidhi
+
+/#
+
+ftp --ip--
+
+/# 
