@@ -1,2 +1,2 @@
 https://pastebin.com/N7JTiz4C
-github.com/SiddhiKhade/CN
+https://github.com/SiddhiKhade/CN
