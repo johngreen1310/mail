@@ -1,0 +1,56 @@
+Experiment 6
+
+AIM:
+a. Set up multipleIP addresses on a singleLAN.
+b. Using Netstat And route commands of Linux, do the following:
+	● View current routing table
+	● Add and delete routes
+	● Change default gateway
+c. Perform packet filtering by enabling IP forwarding using IPtables in Linux.
+
+Part a
+[1] Find IP address using:
+	ip addr or ifconfig
+
+[2]Add IP addresses (3)
+	sudo ifconfig (eth0:0 172.18.41.209) netmask (255.255.240) up
+	sudo ifconfig (eth0:1 172.18.41.210) netmask (255.255.240) up
+	sudo ifconfig (eth0:2 172.18.41.211) netmask (255.255.240) up
+
+[3] Ping the added IP addresses
+	sudo ping (IP add added from above)
+
+Part b
+[1] checking IP table
+	netstat -rn
+ex:    Destination    Gateway     Genmask       Flags MSS Window irtt  Iface
+	0.0.0.0      192.168.0.1  0.0.0.0         UG   0     0     0   wlan0
+	192.168.0.0  0.0.0.0      255.255.255.0    U   0     0     0   wlan0
+
+[2] adding route
+	sudo route add -net 192.168.3.0 gw 192.168.1.1 netmask 255.255.255.0 dev eth0
+
+[3] deleting route
+	sudo route del -net 192.168.3.0 gw 192.168.1.1 netmask 255.255.255.0 dev eth0
+
+[4] add default
+	route add default gw 192.168.1.1
+
+[5] delete default 
+	route del default gw 192.168.1.1
+
+
+Part c
+[1] Install iptables
+	sudo apt-get install iptables
+
+[2] run following commands:
+	sudo iptables -L
+	sudo iptables -A INPUT -j DROP
+	sudo iptables -A INPUT -p ICMP -j DROP
+	(show ping)
+	sudo iptables -F (flush)
+	(show ping)
+
+	
+	

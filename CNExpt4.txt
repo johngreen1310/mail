@@ -1,0 +1,57 @@
+Experiment No. 04
+To learn nmap installation and use this to scan different ports.
+
+[1] Installation: 
+	sudo apt-get install nmap (already done)
+
+[2] Scan a System with Hostname and IP Address
+	nmap www.shahandanchor.com
+	nmap (IP address - copy from above result)
+
+[3] Scan using "-v" option
+	nmap -v www.shahandanchor.com
+
+[4] Scan a whole subnet
+	nmap 192.96.210.* (Put 4th octet as *)
+
+[5] Scan a list of host from a file
+      # cat > test.txt
+	localhost
+	google.com
+	(IP address) 
+	-close the file-
+      # nmap -iL test.txt
+
+[6] Scan an IP address range
+	nmap 192.96.210.12-20 
+
+[7] Scan OS information and Traceroute
+	nmap -A 192.96.210.12
+
+[8] Enable OS Detection with Nmap
+	sudo nmap -O 192.96.210.12
+
+[9] Scan a Host to Detect Firewall
+	sudo nmap -sA 192.96.210.12
+
+[10] Find out Live hosts in a Network
+	nmap -sP 192.96.210.*
+
+[11] Perform a Fast Scan
+	nmap -F 192.96.210.12
+
+[12] Find Nmap version
+	nmap -V
+
+[13] Scan for specific Port
+	nmap -p 80 google.com
+
+[14] Check most commonly used Ports with TCP Syn
+	nmap -sT 192.96.210.12
+
+[15] Scan a UDP Port
+	sudo nmap -sU 192.96.210.12
+	sudo nmap -sU google.com
+
+[16] Find Host Services version Numbers
+	nmap -sV 192.96.210.12
